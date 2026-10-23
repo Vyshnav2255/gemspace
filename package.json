@@ -1,1 +1,14 @@
-{"name":"gemspace","version":"1.0.0","private":true,"description":"Free gemstone assets for your next universe","scripts":{"dev":"python3 -m http.server 4173 --directory dist","build":"python3 build-assets.py","check":"node --check dist/app.js"}}
+{
+  "name": "gemspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free gemstone assets for your next universe",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 --directory dist",
+    "build": "python3 build-assets.py",
+    "check": "node --check dist/app.js",
+    "package:build": "npm --prefix packages/gemspace run build",
+    "package:test": "npm --prefix packages/gemspace test",
+    "package:pack": "node scripts/pack-package.mjs"
+  }
+}

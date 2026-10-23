@@ -7,3 +7,7 @@ Run `npm run dev`, then open http://localhost:4173. No JavaScript dependencies o
 `npm run build` regenerates the SVG variants and ZIP sets using Python's standard library. Color is transparent PNG; the grayscale and glow SVGs embed their artwork and filters, so their effects travel with downloads. Outline is vector SVG. Grayscale and glow are raster-backed SVG, not vector redraws.
 
 The asset permission and AI provenance note are in `dist/LICENSE.txt`. This project began with the Bookcrumbs milestone gem collection. The current project name is a working name.
+
+## Installable dependency
+
+The local npm package is in [`packages/gemspace`](packages/gemspace/README.md). Run `npm run package:pack` to build an installable tarball in `output/`. The package includes a React adapter, a framework-independent image source API, TypeScript definitions, and 12 individually importable gems. It has not been published to npm.

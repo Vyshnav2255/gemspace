@@ -1,0 +1,63 @@
+{
+  "name": "@vyshnav2255/gemspace",
+  "version": "0.1.0",
+  "description": "Gemstone assets for your UI. Twelve gems, four styles, consistent sizing.",
+  "type": "module",
+  "sideEffects": false,
+  "license": "MIT",
+  "files": [
+    "src",
+    "LICENSE",
+    "ASSET-LICENSE.txt",
+    "README.md"
+  ],
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./react": {
+      "types": "./src/react.d.ts",
+      "import": "./src/react.js"
+    },
+    "./gems/*": {
+      "types": "./src/gems/*.d.ts",
+      "import": "./src/gems/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "prepack": "npm run build && npm test"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vyshnav2255/gemspace.git",
+    "directory": "packages/gemspace"
+  },
+  "keywords": [
+    "gemspace",
+    "gems",
+    "gemstones",
+    "react",
+    "icons",
+    "assets"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

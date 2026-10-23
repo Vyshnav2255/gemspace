@@ -1,2 +1,4 @@
 .DS_Store
 .openai/*.zip
+
+output/*.tgz

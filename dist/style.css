@@ -258,3 +258,114 @@ footer>span{line-height:1.6}
 .support-hero{min-height:57px;padding:16px 24px;font-size:15px;background:#efd1e10d;color:#efd1e1;border-color:#efd1e14d}
 .support-hero:hover{background:#efd1e11f;color:#f8e3ee}
 @media(max-width:540px){.hero-actions{gap:12px;flex-direction:column}.hero-actions>a{width:min(100%,270px);justify-content:center}.support-hero{font-size:14px}}
+
+/* Original lavender controls with Hugeicons Stroke Rounded interface icons. */
+.ui-icon{display:inline-block;width:22px;height:22px;flex:none;vertical-align:middle;color:inherit}
+.primary,.support-button{background:#d1c3ff;color:#211735;border-color:#d1c3ff}
+.primary:hover,.support-button:hover{background:#e1d7ff;border-color:#e1d7ff}
+.support-hero{background:#c7b7ff0d;color:#d4c7fa;border-color:#c7b7ff4d}
+.support-hero:hover{background:#c7b7ff1f;color:#e1d7ff;border-color:#c7b7ff80}
+.tabs button[aria-pressed=true]{background:#242235;color:#e0d5ff}
+.pack:hover{border-color:#c7b7ff}
+.download:hover{background:#c7b7ff;color:#141020}
+.support-button .ui-icon{width:22px;height:22px}
+.support-button .trailing-icon{width:18px;height:18px}
+.tabs .ui-icon{width:18px;height:18px;margin-left:5px}
+.pack,.license a,footer>a:last-child{display:inline-flex;align-items:center;gap:10px}
+.pack .ui-icon,.license a .ui-icon,footer>a:last-child .ui-icon{width:20px;height:20px}
+.coordinates .ui-icon{width:16px;height:16px;margin:0 22px;color:#bfb0e9}
+.license-star.ui-icon{width:42px;height:42px;color:#baa9ed}
+@media(max-width:540px){.support-button .trailing-icon{display:none}.coordinates .ui-icon{margin:0 8px}.license-star.ui-icon{width:28px;height:28px}}
+/* Motion: a shared easing curve, composited crossfades, and calm ambient movement. */
+:root{--ease-fluid:cubic-bezier(.22,1,.36,1);--ease-soft:cubic-bezier(.2,.65,.3,1)}
+.primary,.support-button,.pack,.download,.tabs button,.nav-link,.license a,footer>a:last-child{transition:background-color 220ms ease,border-color 220ms ease,color 220ms ease,box-shadow 350ms var(--ease-fluid),transform 350ms var(--ease-fluid)}
+.primary:active,.support-button:active,.pack:active,.download:active{transform:translateY(1px) scale(.97)}
+.ui-icon{transition:transform 350ms var(--ease-fluid)}
+.brand img{transition:transform 500ms var(--ease-fluid),filter 500ms ease}
+.brand:hover img{transform:rotate(-7deg) translateY(-2px);filter:drop-shadow(0 0 18px #eea0c044)}
+.nav-link:hover{color:#e0d5ff}
+.tabs{position:relative;isolation:isolate}
+.tab-indicator{position:absolute;top:0;left:0;z-index:0;background:#242235;border:1px solid #c7b7ff12;border-radius:100px;pointer-events:none}
+.tabs.indicator-ready .tab-indicator{transition:transform 420ms var(--ease-fluid),width 420ms var(--ease-fluid),height 420ms var(--ease-fluid)}
+.tabs.has-indicator button{position:relative;z-index:1;background:transparent;box-shadow:none}
+.tabs.has-indicator button[aria-pressed=true]{background:transparent}
+.tabs button:active{transform:scale(.97)}
+.card{position:relative;isolation:isolate;transition:opacity 650ms var(--ease-fluid),translate 650ms var(--ease-fluid),transform 500ms var(--ease-fluid),border-color 350ms ease,box-shadow 500ms var(--ease-fluid);transition-delay:var(--reveal-delay,0ms),var(--reveal-delay,0ms),0ms,0ms,0ms}
+.card::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(280px circle at var(--pointer-x,50%) var(--pointer-y,40%),#c7b7ff10,transparent 75%);opacity:0;pointer-events:none;transition:opacity 450ms ease}
+.card-info{position:relative}
+.card:hover img{transform:none}
+.gem-stage{display:grid;width:230px;height:285px;max-width:100%;transition:transform 700ms var(--ease-fluid)}
+.art .gem-stage img{grid-area:1/1;width:100%;height:100%;max-width:100%;transform:none;transition:none}
+.card:focus-within{border-color:#c7b7ff55}
+.card:focus-within .download{border-color:#c7b7ff66}
+.license{transition:opacity 700ms var(--ease-fluid),translate 700ms var(--ease-fluid)}
+.reveal-pending{opacity:0;translate:0 18px}
+#status{transition:color 250ms ease;line-height:1.6}
+.floating{animation-duration:10s;animation-timing-function:ease-in-out}
+.gem-right{animation-delay:-5s}
+.shooting-star{animation-duration:16s;animation-timing-function:var(--ease-soft)}
+.second{animation-delay:7s}
+.page-inactive .star,.page-inactive .shooting-star,.page-inactive .floating,.hero-offscreen .floating{animation-play-state:paused}
+@media(hover:hover) and (pointer:fine){
+  .primary:hover,.support-button:hover,.pack:hover{transform:translateY(-2px)}
+  .primary:hover{box-shadow:0 8px 32px #b397ff28}
+  .primary:hover .ui-icon{transform:translateY(3px)}
+  .support-button:hover .trailing-icon,.license a:hover .ui-icon{transform:translate(2px,-2px)}
+  footer>a:last-child:hover .ui-icon{transform:translateY(-3px)}
+  .card:hover{transform:translateY(-5px);border-color:#c7b7ff40;box-shadow:0 16px 45px #0002}
+  .card:hover::before{opacity:1}
+  .card:hover .gem-stage{transform:translateY(-6px) scale(1.025)}
+  .download:hover .ui-icon{transform:translateY(2px)}
+}
+@media(max-width:1100px){.gem-stage{width:205px;height:250px}}
+@media(max-width:800px){.gem-stage{width:220px;height:270px}}
+@media(max-width:540px){.gem-stage{width:250px;height:300px}}
+@media(prefers-reduced-motion:reduce){
+  .reveal-pending{opacity:1;translate:none}
+  .card:hover,.card:hover .gem-stage,.brand:hover img,.primary:hover,.support-button:hover,.pack:hover,.primary:active,.support-button:active,.pack:active,.download:active,.tabs button:active,.ui-icon{transform:none!important}
+}
+
+/* Compact controls; preserve readable labels and touch targets. */
+.primary,.support-button{min-height:40px;padding:9px 16px;font-size:13px;gap:10px}
+.primary{gap:18px}
+.support-hero{min-height:40px;padding:9px 16px;font-size:13px}
+.primary .ui-icon,.support-button .ui-icon{width:18px;height:18px}
+.support-button .trailing-icon{width:16px;height:16px}
+.pack{min-height:40px;padding:9px 15px;font-size:13px;gap:8px}
+.pack .ui-icon{width:18px;height:18px}
+.download{width:36px;height:36px}
+.download .ui-icon{width:19px;height:19px}
+.tabs{padding:4px;gap:3px}
+.tabs button{padding:8px 14px;font-size:12px;line-height:1.5;white-space:nowrap}
+.tabs .ui-icon{width:15px;height:15px;margin-left:3px}
+.hero-actions{gap:12px}
+@media(max-width:540px){
+  .hero-actions{flex-direction:row;gap:10px}
+  .hero-actions>a{width:auto}
+  .tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;border-radius:100px}
+  .tabs button{padding:8px 6px;font-size:12px}
+}
+@media(max-width:390px){
+  .tabs{grid-template-columns:repeat(2,minmax(0,1fr));border-radius:16px}
+  .hero-actions{flex-direction:column}
+}
+@media(pointer:coarse){
+  .primary,.support-button,.support-hero,.pack{min-height:44px}
+  .tabs button{min-height:40px}
+  .download{width:44px;height:44px}
+}
+
+/* Balanced widths and a little more vertical breathing room. */
+.primary,.support-button,.support-hero,.pack{width:192px;max-width:100%;min-height:44px;justify-content:center}
+.hero-actions>a{width:192px}
+header{flex-wrap:wrap;gap:16px}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:440px;max-width:100%}
+.tabs button{width:100%;min-height:37.4px;padding-top:9.7px;padding-bottom:9.7px}
+.download{width:39.6px;height:39.6px}
+@media(max-width:540px){.hero-actions>a{width:192px}}
+@media(max-width:390px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(pointer:coarse){
+  .primary,.support-button,.support-hero,.pack{min-height:48.4px}
+  .tabs button{min-height:44px}
+  .download{width:48.4px;height:48.4px}
+}
